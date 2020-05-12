@@ -117,8 +117,8 @@ if __name__ == "__main__":
             word_id = takeCommand()
             url = "https://od-api.oxforddictionaries.com/api/v2/" + endpoint + "/" + language_code + "/" + word_id.lower()
             r = requests.get(url, headers = {"app_id": app_id, "app_key": app_key})
-            meanings=gg=json.loads(r.text)
-            meaning=(gg['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['shortDefinitions'])
+            meanings=json.loads(r.text)
+            meaning=(meanings['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['shortDefinitions'])
             print(meaning)
             speak(meaning)
             
